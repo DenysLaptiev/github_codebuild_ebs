@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Entered the build phase...
+      - cd ms_1
+      - mvn clean package
+      - cd ..
+      - cd ms_2
+      - mvn clean package
+  post_build:
+    commands:
+      - echo Build completed successfully
+artifacts:
+  files:
+    - ms_1/target/ms-1.jar
+    - ms_2/target/ms-2.jar
+  discard-paths: yes
